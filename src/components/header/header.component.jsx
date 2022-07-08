@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <HeaderContainer>
       <MonteLogo />
-      <HeaderSlogan>Developed with ♥ by Monterail</HeaderSlogan>
+      <HeaderSlogan>Developed with ❤️ by Monterail</HeaderSlogan>
     </HeaderContainer>
   );
 };

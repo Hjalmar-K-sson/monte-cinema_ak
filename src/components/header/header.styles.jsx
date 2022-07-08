@@ -6,7 +6,7 @@ export const HeaderContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 0px 24px;
+  padding: 0 1.5em;
   svg {
     padding: 1.5em;
     display: block;

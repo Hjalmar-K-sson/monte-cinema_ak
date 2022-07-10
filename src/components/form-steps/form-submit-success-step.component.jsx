@@ -3,11 +3,12 @@ import { useContext } from "react";
 import { FormContext } from "../../context/form.context";
 
 import FormHeading from "./form-components/form-heading/form-heading.component";
+import HomePageButton from "./form-components/form-buttons/home-page-button.component";
 
 import { ContentContainer, SuccessParagraph } from "./form.styles";
 
 const FormSubmitSuccessStep = () => {
-  const { formData, activeStepId, setActiveStepId } = useContext(FormContext);
+  const { formData } = useContext(FormContext);
   console.log("loggingfrom FormSubmitSuccessStep", formData);
   return (
     <ContentContainer>
@@ -18,6 +19,7 @@ const FormSubmitSuccessStep = () => {
           <br />
           Make sure to click the link from the message to activate your account.
         </>
+        <HomePageButton href="#" buttonText="Go to homepage" />
       </SuccessParagraph>
     </ContentContainer>
   );

@@ -1,5 +1,59 @@
-body {
+/* * {
   box-sizing: border-box;
-  margin: 0 auto;
+} */
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+strong,
+b,
+i,
+fieldset,
+form,
+label,
+footer,
+header,
+section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+}
+
+article,
+footer,
+header,
+section {
+  display: block;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+form,
+input,
+select,
+button {
+  vertical-align: middle;
+  box-sizing: border-box;
 }
  

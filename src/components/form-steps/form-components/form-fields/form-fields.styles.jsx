@@ -1,68 +1,85 @@
 import styled from "styled-components";
 
-export const InputField = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100% auto;
-  padding: 1em;
-  position: relative;
-`;
+import { Field } from "formik";
 
-export const FormLabel = styled.p`
+export const FormLabel = styled.label`
+  position: relative;
+  display: block;
   align-self: flex-start;
-  font-family: "Roboto Mono";
+  font-family: ${(props) => props.theme.fonts.defaultFont};
   font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: ${(props) => props.theme.fontWeights.xl};
+  font-size: ${(props) => props.theme.fontSizes.xs};
   line-height: 18px;
   text-transform: uppercase;
-  padding: 0.5em;
-  color: #f47073;
-`;
-
-export const FormInput = styled.input`
-  align-self: flex-start;
-  height: 1.4em;
-  background: #f7f7f7;
-  border: none;
-  border-radius: 8px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 21px;
-  padding: 0.8em;
-  color: #85868d;
+  padding: 1.5rem 0.75rem 0.75rem 0;
+  color: ${(props) => props.theme.colors.bittersweetRed};
   width: 100%;
+  z-index: 1;
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    z-index: 2;
+    @media (min-width: 1024px) {
+      left: 85%;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
 `;
 
-// export const Suggestion = styled.p`
-//   font-family: "Roboto";
-//   font-style: normal;
-//   font-weight: 400;
-//   font-size: 14px;
-//   line-height: 170%;
-//   letter-spacing: 0.04em;
-//   color: #343541;
-// `;
+export const TextFormInput = styled(Field)`
+  display: block;
+  align-self: flex-start;
+  background: ${(props) => props.theme.colors.athensGray};
+  border: none;
+  border-radius: ${(props) => props.theme.radiuses.inputRadius};
+  font-family: ${(props) => props.theme.fonts.defaultFont};
+  font-style: normal;
+  font-weight: ${(props) => props.theme.fontWeights.sm};
+  font-size: ${(props) => props.theme.fontSizes.md};
+  line-height: 21px;
+  padding: 1.5rem 1.1rem;
+  margin-top: 0.75rem;
+  color: ${(props) => props.theme.colors.grayJumbo};
+  width: 100%;
+  /* &::placeholder,
+  &::-webkit-input-placeholder {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  } */
+  &:hover {
+    background: ${(props) => props.theme.colors.inputHover};
+  }
+  &:focus,
+  &:focus-visible {
+    background: ${(props) => props.theme.colors.inputActiveBg};
+    border: ${(props) => props.theme.borders.inputActive};
+    outline: none;
+  }
+  &:invalid:focus {
+    border: ${(props) => props.theme.borders.inputInvalid};
+  }
+`;
 
 export const Suggestion = styled.p`
-  font-family: "Roboto";
+  align-self: flex-start;
+  font-family: ${(props) => props.theme.fonts.defaultFont};
   font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: ${(props) => props.theme.fontWeights.sm};
+  font-size: ${(props) => props.theme.fontSizes.xs};
   line-height: 170%;
   letter-spacing: 0.04em;
-  color: #ec1115;
+  color: ${(props) => props.theme.colors.grayTuna};
 `;
 
-// export const SuggestionCleared = styled.p`
-//   font-family: "Roboto";
-//   font-style: normal;
-//   font-weight: 400;
-//   font-size: 14px;
-//   line-height: 170%;
-//   letter-spacing: 0.04em;
-//   color: #27ae60;
-// `;
+export const SuggestionError = styled(Suggestion)`
+  color: ${(props) => props.theme.colors.cherryRed};
+`;
+
+export const SuggestionCleared = styled(Suggestion)`
+  color: ${(props) => props.theme.colors.successGreen};
+`;

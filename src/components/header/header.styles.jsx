@@ -1,19 +1,17 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
-  height: 6.125em;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 0 1.5em;
   svg {
-    padding: 1.5em;
+    padding: 3em;
     display: block;
   }
   span {
     display: none;
-    padding: 1.5em;
+    padding: 3em;
     @media (min-width: 1024px) {
       display: block;
     }
@@ -25,13 +23,13 @@ export const HeaderContainer = styled.div`
 `;
 
 export const HeaderSlogan = styled.span`
-  font-family: "Roboto Mono";
+  font-family: ${(props) => props.theme.fonts.labelFont};
   font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
+  font-weight: ${(props) => props.theme.fontWeights.md};
+  font-size: ${(props) => props.theme.fontSizes.sm};
   line-height: 21px;
   text-align: right;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: #343541;
+  color: ${(props) => props.theme.colors.grayTuna};
 `;

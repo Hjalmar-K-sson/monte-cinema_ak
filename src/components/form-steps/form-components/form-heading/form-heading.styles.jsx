@@ -4,8 +4,11 @@ export const FormHeadingContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   padding: 4em 2.3em 3em 2.3em;
+  @media (min-width: 1024px) {
+    align-items: flex-start;
+  }
 `;
 
 export const FormHeader = styled.span`

@@ -1,21 +1,25 @@
 import { useField } from "formik";
 
 import {
-  InputField,
   FormLabel,
-  FormInput,
-  Suggestion,
+  TextFormInput,
+  SuggestionError,
 } from "./form-fields.styles";
 
 const TextFormField = ({ label, ...props }) => {
   const [field, meta] = useField(props);
-
+  console.log(meta);
   return (
-    <InputField>
-      <FormLabel htmlFor={props.id || props.name}>{label}</FormLabel>
-      <FormInput {...field} {...props} />
-      {meta.value && meta.error ? <Suggestion>{meta.error}</Suggestion> : null}
-    </InputField>
+    <>
+      <FormLabel htmlFor={props.id || props.name}>
+        {label}
+        <TextFormInput {...field} {...props} />
+      </FormLabel>
+
+      {(meta.value && meta.error) || meta.touched ? (
+        <SuggestionError>{meta.error}</SuggestionError>
+      ) : null}
+    </>
   );
 };
 

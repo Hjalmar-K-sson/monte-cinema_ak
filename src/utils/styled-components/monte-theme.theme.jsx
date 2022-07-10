@@ -1,22 +1,58 @@
 import { ThemeProvider } from "styled-components";
-import media from "./media";
 
-const MonteTheme = ({ children }) => (
-  <ThemeProvider
-    theme={{
-      snowWhite: "#FFFFFF",
-      grayTuna: "#343541",
-      grayJumbo: "#85868D",
-      bittersweetRed: "#F47073",
-      cherryRed: "#EC1115",
-      headerFont: "Eczar",
-      labelFont: "Roboto Mono",
-      defaultFont: "Roboto",
-      ...media,
-    }}
-  >
-    {children}
-  </ThemeProvider>
-);
+const theme = {
+  colors: {
+    snowWhite: "#FFFFFF",
+    grayTuna: "#343541",
+    grayJumbo: "#85868D",
+    grayCharade: "#292A33",
+    athensGray: "#F7F7F7",
+    bittersweetRed: "#F47073",
+    cherryRed: "#EC1115",
+    successGreen: "#27AE60",
+    inputHover: "#E5E5E5",
+    inputActiveBg: "rgba(47, 128, 237, 0.1)",
+  },
+  fonts: {
+    headerFont: "Eczar",
+    labelFont: "Roboto Mono",
+    defaultFont: "Roboto",
+  },
+  fontSizes: {
+    xs: "0.875rem",
+    sm: "1rem",
+    md: "1.125rem",
+    lg: "2.5rem",
+    xl: "5rem",
+  },
+  fontWeights: {
+    sm: 400,
+    md: 500,
+    lg: 600,
+    xl: 700,
+  },
+  borders: {
+    inputActive: "1px solid #2F80ED",
+    inputInvalid: "1px solid #EC1115",
+  },
+  shadows: {
+    formShadow: "0rem 0.25rem 1.375rem rgba(52, 53, 65, 0.15)",
+  },
+  radiuses: {
+    buttonRadius: "4rem",
+    formContRadius: "1.5rem",
+    smContRadius: "2rem",
+    inputRadius: "0.5rem",
+  },
+  media: {
+    xl: 1440,
+    lg: 1024,
+    sm: 375,
+  },
+};
+
+const MonteTheme = ({ children }) => {
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+};
 
 export default MonteTheme;

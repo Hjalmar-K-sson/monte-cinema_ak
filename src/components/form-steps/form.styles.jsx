@@ -7,7 +7,6 @@ export const ContentContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   padding: 0px;
-  width: 100vw;
   background: ${(props) => props.theme.colors.snowWhite};
 `;
 
@@ -28,14 +27,14 @@ export const StyledForm = styled(Form)`
 `;
 
 export const SuccessParagraph = styled.div`
-  padding: 0 1.5em;
   font-family: ${(props) => props.theme.fonts.defaultFont};
   font-style: normal;
   font-weight: ${(props) => props.theme.fontWeights.sm};
   font-size: ${(props) => props.theme.fontSizes.md};
   line-height: 21px;
-  text-align: center;
   color: ${(props) => props.theme.colors.grayCharade};
+  text-align: center;
+  padding: 0 1.5em;
 `;
 
 export const FormButtonWrapper = styled.div`
@@ -44,7 +43,8 @@ export const FormButtonWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-top: 7.5rem;
+  height: 100%;
+  margin-top: 3rem;
   @media (min-width: 1024px) {
     flex-direction: row;
   }

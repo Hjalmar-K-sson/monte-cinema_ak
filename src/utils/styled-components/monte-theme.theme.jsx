@@ -12,6 +12,7 @@ const theme = {
     successGreen: "#27AE60",
     inputHover: "#E5E5E5",
     inputActiveBg: "rgba(47, 128, 237, 0.1)",
+    btnHover: "#a60c0e",
   },
   fonts: {
     headerFont: "Eczar",
@@ -34,6 +35,9 @@ const theme = {
   borders: {
     inputActive: "1px solid #2F80ED",
     inputInvalid: "1px solid #EC1115",
+    checkbox: "1px solid #85868D",
+    checkedSymbol: "solid #FFFFFF",
+    btnFocus: "5px solid #f47073",
   },
   shadows: {
     formShadow: "0rem 0.25rem 1.375rem rgba(52, 53, 65, 0.15)",
@@ -43,11 +47,6 @@ const theme = {
     formContRadius: "1.5rem",
     smContRadius: "2rem",
     inputRadius: "0.5rem",
-  },
-  media: {
-    xl: 1440,
-    lg: 1024,
-    sm: 375,
   },
 };
 

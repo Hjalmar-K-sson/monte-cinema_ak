@@ -9,7 +9,6 @@ import { ContentContainer, SuccessParagraph } from "./form.styles";
 
 const FormSubmitSuccessStep = () => {
   const { formData } = useContext(FormContext);
-  console.log("loggingfrom FormSubmitSuccessStep", formData);
   return (
     <ContentContainer>
       <FormHeading headerText={`Good job ${formData.firstName}!`} />

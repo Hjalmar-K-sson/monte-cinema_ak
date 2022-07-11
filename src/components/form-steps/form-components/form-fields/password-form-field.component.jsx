@@ -14,7 +14,6 @@ import {
 
 const PasswordFormField = ({ label, ...props }) => {
   const [field, meta] = useField(props);
-  console.log("password meta: ", meta, "password field: ", field);
   const [passwordVisible, setPasswordVisible] = useState(false);
   const togglePasswordVisible = () => setPasswordVisible(!passwordVisible);
   return (

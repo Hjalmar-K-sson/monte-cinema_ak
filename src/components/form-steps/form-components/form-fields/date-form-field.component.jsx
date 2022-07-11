@@ -9,7 +9,6 @@ import {
 
 const DateFormField = ({ label, ...props }) => {
   const [field, meta] = useField(props);
-  console.log("date:", meta);
   return (
     <>
       <FormLabel htmlFor={props.id || props.name}>

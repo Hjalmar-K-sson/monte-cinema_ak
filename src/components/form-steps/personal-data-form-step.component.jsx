@@ -31,7 +31,6 @@ const PersonalDataFormStep = () => {
         validationSchema={personalFormValidationSchema}
         onSubmit={(values) => {
           const data = { ...formData, ...values };
-          console.log(data);
           setFormData(data);
           setActiveStepId(activeStepId + 1);
         }}

@@ -31,7 +31,6 @@ const AuthDataFormStep = () => {
         validationSchema={authFormValidationSchema}
         onSubmit={(values) => {
           const data = { ...formData, ...values };
-          console.log(data);
           setFormData(data);
           setActiveStepId(activeStepId + 1);
         }}

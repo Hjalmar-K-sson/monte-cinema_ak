@@ -5,11 +5,11 @@ export const SubmitButton = styled.button`
   background: ${(props) => props.theme.colors.cherryRed};
   border: none;
   border-radius: ${(props) => props.theme.radiuses.buttonRadius};
-  padding: 1rem;
+  padding: 1.2rem 0;
   font-family: ${(props) => props.theme.fonts.labelFont};
   font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
+  font-weight: ${(props) => props.theme.fontWeights.md};
+  font-size: ${(props) => props.theme.fontSizes.md};
   line-height: 100%;
   text-align: center;
   letter-spacing: 0.015em;
@@ -18,14 +18,12 @@ export const SubmitButton = styled.button`
   &:hover,
   &:focus-visible {
     cursor: pointer;
-    background: #a60c0e;
+    background: ${(props) => props.theme.colors.btnHover};
   }
-  &:focus {
-    background: #a60c0e;
-    border: 5px solid #f47073;
-  }
+  &:focus,
   &:focus-visible {
-    border: none;
+    background: ${(props) => props.theme.colors.btnHover};
+    border: ${(props) => props.theme.borders.btnFocus};
     outline: none;
   }
 `;
@@ -36,11 +34,11 @@ export const LinkButton = styled.a`
   background: transparent;
   border: none;
   border-radius: ${(props) => props.theme.radiuses.buttonRadius};
-  padding: 1rem;
+  padding: 2.2rem 0;
   font-family: ${(props) => props.theme.fonts.labelFont};
   font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
+  font-weight: ${(props) => props.theme.fontWeights.md};
+  font-size: ${(props) => props.theme.fontSizes.md};
   line-height: 100%;
   text-align: center;
   letter-spacing: 0.015em;
@@ -62,18 +60,17 @@ export const HomepageLinkButton = styled(LinkButton)`
   background: ${(props) => props.theme.colors.cherryRed};
   color: ${(props) => props.theme.colors.snowWhite};
   margin-top: 3rem;
+  padding: 1.2rem 0;
   width: auto;
   &:hover,
   &:focus-visible {
     cursor: pointer;
-    background: #a60c0e;
+    background: ${(props) => props.theme.colors.btnHover};
   }
-  &:focus {
-    background: #a60c0e;
-    border: 5px solid #f47073;
-  }
+  &:focus,
   &:focus-visible {
-    border: none;
+    background: ${(props) => props.theme.colors.btnHover};
+    border: ${(props) => props.theme.borders.btnFocus};
     outline: none;
   }
 `;

@@ -13,19 +13,19 @@ export const FormHeadingContainer = styled.div`
 
 export const FormHeader = styled.span`
   display: block;
-  font-family: "Eczar";
+  font-family: ${(props) => props.theme.fonts.headerFont};
   font-style: normal;
-  font-weight: 600;
-  font-size: 40px;
+  font-weight: ${(props) => props.theme.fontWeights.lg};
+  font-size: ${(props) => props.theme.fontSizes.lg};
   line-height: 102%;
   text-align: center;
   letter-spacing: -0.01em;
-  color: #343541;
+  color: ${(props) => props.theme.colors.grayTuna};
   @media (min-width: 1024px) {
-    font-size: 80px;
+    font-size: ${(props) => props.theme.fontSizes.xl};
   }
 `;
 
 export const FormSubHeader = styled(FormHeader)`
-  color: #85868d;
+  color: ${(props) => props.theme.colors.grayJumbo};
 `;

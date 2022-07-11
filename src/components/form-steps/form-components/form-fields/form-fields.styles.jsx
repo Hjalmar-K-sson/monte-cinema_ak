@@ -18,11 +18,13 @@ export const FormLabel = styled.label`
   z-index: 1;
   svg {
     position: absolute;
-    top: 50%;
-    left: 80%;
+    top: 53%;
+    right: 10%;
     z-index: 2;
+    @media (min-width: 768px) {
+      right: 5%;
+    }
     @media (min-width: 1024px) {
-      left: 85%;
       &:hover {
         cursor: pointer;
       }
@@ -30,7 +32,7 @@ export const FormLabel = styled.label`
   }
 `;
 
-export const TextFormInput = styled(Field)`
+export const FormInput = styled(Field)`
   display: block;
   align-self: flex-start;
   background: ${(props) => props.theme.colors.athensGray};
@@ -45,14 +47,11 @@ export const TextFormInput = styled(Field)`
   margin-top: 0.75rem;
   color: ${(props) => props.theme.colors.grayJumbo};
   width: 100%;
-  /* &::placeholder,
-  &::-webkit-input-placeholder {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  } */
   &:hover {
     background: ${(props) => props.theme.colors.inputHover};
+  }
+  :invalid:focus {
+    border: ${(props) => props.theme.borders.inputInvalid};
   }
   &:focus,
   &:focus-visible {
@@ -60,8 +59,70 @@ export const TextFormInput = styled(Field)`
     border: ${(props) => props.theme.borders.inputActive};
     outline: none;
   }
-  &:invalid:focus {
-    border: ${(props) => props.theme.borders.inputInvalid};
+`;
+
+export const HiddenCheckbox = styled.input`
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  cursor: pointer;
+`;
+
+export const CustomCheckbox = styled.div`
+  position: absolute;
+  top: -2px;
+  left: 0;
+  height: 21px;
+  width: 21px;
+  border: ${(props) => props.theme.borders.checkbox};
+  border-radius: ${(props) => props.theme.radiuses.inputRadius};
+  background: ${(props) => props.theme.colors.snowWhite};
+  &:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+`;
+
+export const CheckboxLabel = styled.label`
+  align-self: flex-start;
+  display: block;
+  position: relative;
+  padding-left: 2rem;
+  margin: 1.6rem 0;
+  cursor: pointer;
+  font-family: ${(props) => props.theme.fonts.defaultFont};
+  font-size: ${(props) => props.theme.fontSizes.md};
+  color: ${(props) => props.theme.colors.grayCharade};
+  line-height: 21px;
+  user-select: none;
+  a {
+    font-size: ${(props) => props.theme.fontSizes.md};
+    color: ${(props) => props.theme.colors.grayCharade};
+    @media (min-width: 1024px) {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  &:hover ${HiddenCheckbox} ~ ${CustomCheckbox} {
+    background: ${(props) => props.theme.colors.inputHover};
+  }
+  ${HiddenCheckbox}:checked ~ ${CustomCheckbox} {
+    background: ${(props) => props.theme.colors.successGreen};
+  }
+  ${HiddenCheckbox}:checked ~ ${CustomCheckbox}::after {
+    display: block;
+  }
+  ${CustomCheckbox}::after {
+    left: 30%;
+    top: 10%;
+    width: 5px;
+    height: 10px;
+    border: ${(props) => props.theme.borders.checkedSymbol};
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
   }
 `;
 

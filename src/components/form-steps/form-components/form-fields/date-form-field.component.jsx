@@ -1,26 +1,32 @@
 import { useField } from "formik";
 
 import {
-  InputField,
   FormLabel,
   FormInput,
   Suggestion,
-  // SuggestionError,
-  // SuggestionCleared,
+  SuggestionError,
 } from "./form-fields.styles";
 
-const TextFormField = ({ label, ...props }) => {
+const DateFormField = ({ label, ...props }) => {
   const [field, meta] = useField(props);
-
+  console.log("date:", meta);
   return (
-    <InputField>
-      <FormLabel htmlFor={props.id || props.name}>{label}</FormLabel>
-      <FormInput {...field} {...props} />
-      {meta.touched && meta.error ? (
-        <Suggestion>{meta.error}</Suggestion>
+    <>
+      <FormLabel htmlFor={props.id || props.name}>
+        {label}
+        <FormInput {...field} {...props} />
+      </FormLabel>
+
+      {!meta.touched || (meta.value === "" && meta.error === undefined) ? (
+        <Suggestion>You should be minimum 18 years old</Suggestion>
+      ) : meta.touched && meta.error === "Please enter Your date of birth" ? (
+        <SuggestionError>{meta.error}</SuggestionError>
+      ) : meta.value !== "" &&
+        meta.error === "You should be minimum 18 years old" ? (
+        <SuggestionError>{meta.error}</SuggestionError>
       ) : null}
-    </InputField>
+    </>
   );
 };
 
-export default TextFormField;
+export default DateFormField;

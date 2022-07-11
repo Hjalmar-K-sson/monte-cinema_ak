@@ -6,29 +6,29 @@ import { ReactComponent as ToggleVisibilityIcon } from "../../../../assets/eye.s
 
 import {
   FormLabel,
-  TextFormInput,
+  FormInput,
   Suggestion,
   SuggestionError,
   SuggestionCleared,
 } from "./form-fields.styles";
 
-const PasswordFormField = ({ label, type, ...props }) => {
+const PasswordFormField = ({ label, ...props }) => {
   const [field, meta] = useField(props);
-  console.log(meta);
+  console.log("password meta: ", meta, "password field: ", field);
   const [passwordVisible, setPasswordVisible] = useState(false);
   const togglePasswordVisible = () => setPasswordVisible(!passwordVisible);
   return (
     <>
       <FormLabel htmlFor={props.id || props.name}>
         {label}
-        <TextFormInput
+        <FormInput
           type={passwordVisible ? "text" : "password"}
           {...field}
           {...props}
         />
         <ToggleVisibilityIcon onClick={togglePasswordVisible} />
       </FormLabel>
-      {!meta.touched ? (
+      {meta.value === "" && meta.error === undefined ? (
         <Suggestion>At least one letter</Suggestion>
       ) : (meta.value.length >= 1 && meta.error === "At least one letter") ||
         (meta.value.length >= 1 && meta.error === "Please enter a password") ||
@@ -37,7 +37,7 @@ const PasswordFormField = ({ label, type, ...props }) => {
       ) : (
         <SuggestionCleared>At least one letter</SuggestionCleared>
       )}
-      {!meta.touched ? (
+      {meta.value === "" && meta.error === undefined ? (
         <Suggestion>At least one digit</Suggestion>
       ) : (meta.value.length >= 1 && meta.error === "At least one digit") ||
         (meta.value.length >= 1 && meta.error === "Please enter a password") ||
@@ -46,7 +46,7 @@ const PasswordFormField = ({ label, type, ...props }) => {
       ) : (
         <SuggestionCleared>At least one digit</SuggestionCleared>
       )}
-      {!meta.touched ? (
+      {meta.value === "" && meta.error === undefined ? (
         <Suggestion>At least 8 characters</Suggestion>
       ) : (meta.value.length >= 1 && meta.value.length < 8) ||
         (meta.value.length < 1 && meta.error === "Please enter a password") ? (

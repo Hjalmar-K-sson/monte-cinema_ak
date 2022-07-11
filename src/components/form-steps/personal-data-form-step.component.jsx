@@ -4,6 +4,8 @@ import { FormContext } from "../../context/form.context";
 
 import FormHeading from "./form-components/form-heading/form-heading.component";
 import TextFormField from "./form-components/form-fields/text-form-field.component";
+import DateFormField from "./form-components/form-fields/date-form-field.component";
+import CheckboxFormField from "./form-components/form-fields/checkbox-form-field.component";
 import FormSubmitButton from "./form-components/form-buttons/form-submit-button.component";
 import LoginInsteadButton from "./form-components/form-buttons/login-instead-button.component";
 
@@ -23,7 +25,7 @@ const PersonalDataFormStep = () => {
         initialValues={{
           firstName: "",
           lastName: "",
-          dateOfBirth: null,
+          dateOfBirth: "",
           acceptPrivacyPolicy: false,
         }}
         validationSchema={personalFormValidationSchema}
@@ -40,25 +42,27 @@ const PersonalDataFormStep = () => {
             name="firstName"
             type="text"
             placeholder="e.g. Jessica"
+            required
           />
           <TextFormField
             label="last name"
             name="lastName"
             type="text"
             placeholder="e.g. Walton"
+            required
           />
-          {/* <FormField
+          <DateFormField
             label="date of birth"
             name="dateOfBirth"
             type="date"
-            placeholder="dateOfBirth"
-          /> */}
-          {/* <FormField
-            label="accept privacy policy"
+            required
+          />
+          <CheckboxFormField
+            label="I accept "
+            labelLink="Privacy Policy"
+            href="#"
             name="acceptPrivacyPolicy"
-            type="checkbox"
-            placeholder="acceptPrivacyPolicy"
-          /> */}
+          />
           <FormButtonWrapper>
             <FormSubmitButton buttonText="Register" />
             <LoginInsteadButton href="#" buttonText="Log in instead" />
@@ -70,63 +74,3 @@ const PersonalDataFormStep = () => {
 };
 
 export default PersonalDataFormStep;
-
-// import { useContext } from "react";
-
-// import { FormContext } from "../../context/form.context";
-
-// import FormHeading from "./form-components/form-heading/form-heading.component";
-// import FormField from "./form-components/form-fields/form-field.component";
-// import FormButtonGroup from "./form-components/form-button-group/form-button-group.component";
-
-// import { ContentContainer, FormContainer, StyledForm } from "./form.styles";
-
-// import { Formik } from "formik";
-// import { personalFormValidationSchema } from "../../utils/yup-utils/form-validation.schema";
-
-// const PersonalDataFormStep = () => {
-//   const { activeStepId, setActiveStepId, formData, setFormData } =
-//     useContext(FormContext);
-//   console.log(activeStepId, formData);
-
-//   return (
-//     <ContentContainer>
-//       <FormHeading headerText={"Great!"} subHeaderText={"Now Your name"} />
-//       <FormContainer>
-//         <Formik
-//           initialValues={{
-//             firstName: "",
-//             lastName: "",
-//             dateOfBirth: null,
-//             acceptPrivacyPolicy: false,
-//           }}
-//           validationSchema={personalFormValidationSchema}
-//           onSubmit={(values) => {
-//             const data = { ...formData, ...values };
-//             setFormData(data);
-//             setActiveStepId(activeStepId + 1);
-//           }}
-//         >
-//           <StyledForm>
-//             <FormField
-//               label="first name"
-//               name="firstName"
-//               type="text"
-//               placeholder="firstName"
-//             />
-//             <FormField
-//               label="last name"
-//               name="lastName"
-//               type="text"
-//               placeholder="lastName"
-//             />
-//             <FormButtonGroup
-//               submitButtonText="Register"
-//               loginButtonText="Log in instead"
-//             />
-//           </StyledForm>
-//         </Formik>
-//       </FormContainer>
-//     </ContentContainer>
-//   );
-// };

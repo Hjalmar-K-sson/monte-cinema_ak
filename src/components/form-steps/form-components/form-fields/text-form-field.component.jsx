@@ -1,19 +1,15 @@
 import { useField } from "formik";
 
-import {
-  FormLabel,
-  TextFormInput,
-  SuggestionError,
-} from "./form-fields.styles";
+import { FormLabel, FormInput, SuggestionError } from "./form-fields.styles";
 
 const TextFormField = ({ label, ...props }) => {
   const [field, meta] = useField(props);
-  console.log(meta);
+
   return (
     <>
       <FormLabel htmlFor={props.id || props.name}>
         {label}
-        <TextFormInput {...field} {...props} />
+        <FormInput {...field} {...props} />
       </FormLabel>
 
       {(meta.value && meta.error) || meta.touched ? (

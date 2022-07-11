@@ -14,15 +14,15 @@ export const authFormValidationSchema = Yup.object({
 export const personalFormValidationSchema = Yup.object({
   firstName: Yup.string().required("Please enter Your first name"),
   lastName: Yup.string().required("Please enter Your last name"),
-  // dateOfBirth: Yup.date("Please enter Your date of birth")
-  //   .required("Please enter Your date of birth")
-  //   .nullable()
-  //   .test("age", "You should be minimum 18 years old", (dateOfBirth) => {
-  //     const cutoff = new Date();
-  //     cutoff.setFullYear(cutoff.getFullYear() - 18);
-  //     return dateOfBirth <= cutoff;
-  //   }),
-  // acceptPrivacyPolicy: Yup.boolean().required(
-  //   "You need to accept our privacy policy to proceed."
-  // ),
+  dateOfBirth: Yup.date("Please enter Your date of birth")
+    .required("Please enter Your date of birth")
+    .nullable()
+    .test("age", "You should be minimum 18 years old", (dateOfBirth) => {
+      const cutoff = new Date();
+      cutoff.setFullYear(cutoff.getFullYear() - 18);
+      return dateOfBirth <= cutoff;
+    }),
+  acceptPrivacyPolicy: Yup.boolean()
+    .required("Required")
+    .oneOf([true], "You must accept our privacy policy to proceed."),
 });
